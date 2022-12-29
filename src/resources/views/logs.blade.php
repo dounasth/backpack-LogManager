@@ -3,7 +3,7 @@
 @php
   $breadcrumbs = [
     trans('backpack::crud.admin') => backpack_url('dashboard'),
-    trans('backpack::logmanager.log_manager') => backpack_url('log'),
+    trans('backpack::logmanager.log_manager') => route('log.index'),
     trans('backpack::logmanager.existing_logs') => false,
   ];
 @endphp
@@ -40,10 +40,10 @@
             <td>{{ \Carbon\Carbon::createFromTimeStamp($file['last_modified'])->isoFormat('HH:mm') }}</td>
             <td class="text-right">{{ round((int)$file['file_size']/1048576, 2).' MB' }}</td>
             <td>
-                <a class="btn btn-sm btn-link" href="{{ url(config('backpack.base.route_prefix', 'admin').'/log/preview/'. encrypt($file['file_name'])) }}"><i class="la la-eye"></i> {{ trans('backpack::logmanager.preview') }}</a>
-                <a class="btn btn-sm btn-link" href="{{ url(config('backpack.base.route_prefix', 'admin').'/log/download/'.encrypt($file['file_name'])) }}"><i class="la la-cloud-download"></i> {{ trans('backpack::logmanager.download') }}</a>
+                <a class="btn btn-sm btn-link" href="{{ route('log.show', encrypt($file['file_name'])) }}"><i class="la la-eye"></i> {{ trans('backpack::logmanager.preview') }}</a>
+                <a class="btn btn-sm btn-link" href="{{ route('log.download', encrypt($file['file_name'])) }}"><i class="la la-cloud-download"></i> {{ trans('backpack::logmanager.download') }}</a>
                 @if (config('backpack.logmanager.allow_delete'))
-                    <a class="btn btn-sm btn-link" data-button-type="delete" href="{{ url(config('backpack.base.route_prefix', 'admin').'/log/delete/'.encrypt($file['file_name'])) }}"><i class="la la-trash-o"></i> {{ trans('backpack::logmanager.delete') }}</a>
+                    <a class="btn btn-sm btn-link" data-button-type="delete" href="{{ route('log.destroy', encrypt($file['file_name'])) }}"><i class="la la-trash-o"></i> {{ trans('backpack::logmanager.delete') }}</a>
                 @endif
             </td>
           </tr>
