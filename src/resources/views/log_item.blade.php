@@ -9,11 +9,17 @@
 @endphp
 
 @section('header')
-    <section class="container-fluid">
-      <h2>
-        {{ trans('backpack::logmanager.log_manager') }}<small>{{ trans('backpack::logmanager.file_name') }}: <i>{{ $file_name }}</i></small>
-        <small><a href="{{ route('log.index') }}" class="hidden-print font-sm"><i class="la la-angle-double-left"></i> {{ trans('backpack::logmanager.back_to_all_logs') }}</a></small>
-      </h2>
+    <section class="header-operation container-fluid animated fadeIn d-flex mb-2 align-items-end" bp-section="page-header">
+      <h1 bp-section="page-heading">
+        {{ trans('backpack::logmanager.log_manager') }}
+      </h1>
+      <p class="ms-2 ml-2 mb-2" bp-section="page-subheading">
+        {{ trans('backpack::logmanager.file_name') }}: <i>{{ $file_name }}</i>
+      </p>
+      <p class="ms-2 ml-2 mb-2" bp-section="page-subheading-back-button">
+        <small><a href="{{ route('log.index') }}" class="hidden-print font-sm"><i class="la la-angle-double-left"></i> {{
+            trans('backpack::logmanager.back_to_all_logs') }}</a></small>
+      </p>
     </section>
 @endsection
 
