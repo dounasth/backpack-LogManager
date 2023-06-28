@@ -28,7 +28,7 @@
     @forelse($logs as $key => $log)
       <div class="card mb-0 pb-0">
         <div class="card-header bg-{{ $log['level_class'] }}" role="tab" id="heading{{ $key }}">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $key }}" aria-expanded="true" aria-controls="collapse{{ $key }}" class="text-white">
+            <a role="button" data-toggle="collapse" data-bs-toggle="collapse" data-parent="#accordion" href="#collapse{{ $key }}" aria-expanded="true" aria-controls="collapse{{ $key }}" class="text-white">
               <i class="la la-{{ $log['level_img'] }}"></i>
               <span>[{{ $log['date'] }}]</span>
               {{ Str::limit($log['text'], 150) }}
@@ -37,7 +37,7 @@
         <div id="collapse{{ $key }}" class="panel-collapse collapse p-3" role="tabpanel" aria-labelledby="heading{{ $key }}">
           <div class="panel-body">
             <p>{{$log['text']}}</p>
-            <pre><code class="php">{{ trim($log['stack']) }}</code></pre>
+            <pre class="p-0" ><code class="php">{{ trim($log['stack']) }}</code></pre>
           </div>
         </div>
       </div>
