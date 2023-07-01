@@ -9,10 +9,13 @@
 @endphp
 
 @section('header')
-    <section class="container-fluid">
-      <h2>
-        {{ trans('backpack::logmanager.log_manager') }}<small>{{ trans('backpack::logmanager.log_manager_description') }}</small>
-      </h2>
+    <section class="header-operation container-fluid animated fadeIn d-flex mb-2 align-items-end" bp-section="page-header">
+      <h1 bp-section="page-heading">
+        {{ trans('backpack::logmanager.log_manager') }}
+      </h1>
+      <p class="ms-2 ml-2 mb-2" bp-section="page-subheading">
+        {{ trans('backpack::logmanager.log_manager_description') }}
+      </p>
     </section>
 @endsection
 
