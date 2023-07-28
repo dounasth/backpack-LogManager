@@ -17,7 +17,7 @@ A simple interface to preview, download and delete Laravel log files.
 # install the package with composer
 composer require backpack/logmanager
 
-# [optional] Add a sidebar_content item for it
+# [optional] Add a menu item for it
 # For Backpack v6
 php artisan backpack:add-menu-content "<x-backpack::menu-item title='Logs' icon='la la-terminal' :link=\"backpack_url('log')\" />"
 # For Backpack v5 or v4
