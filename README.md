@@ -60,12 +60,6 @@ Add a menu element for it or just try at **your-project-domain/admin/log**
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Testing
-
-``` bash
-$ composer test
-```
-
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
