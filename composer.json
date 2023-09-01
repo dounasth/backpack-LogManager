@@ -23,27 +23,12 @@
     "require": {
         "backpack/crud": "^6.0"
     },
-    "require-dev": {
-        "phpunit/phpunit" : "^9.0||^7.0",
-        "scrutinizer/ocular": "~1.1"
-    },
     "autoload": {
         "psr-4": {
             "Backpack\\LogManager\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Backpack\\LogManager\\Test\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit --testdox"
-    },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
         "laravel": {
             "providers": [
                 "Backpack\\LogManager\\LogManagerServiceProvider"
