@@ -1,4 +1,4 @@
-@extends(backpack_view('layouts.top_left'))
+@extends(backpack_view('blank'))
 
 @php
   $breadcrumbs = [
@@ -9,10 +9,13 @@
 @endphp
 
 @section('header')
-    <section class="container-fluid">
-      <h2>
-        {{ trans('backpack::logmanager.log_manager') }}<small>{{ trans('backpack::logmanager.log_manager_description') }}</small>
-      </h2>
+    <section class="header-operation container-fluid animated fadeIn d-flex mb-2 align-items-end" bp-section="page-header">
+      <h1 bp-section="page-heading">
+        {{ trans('backpack::logmanager.log_manager') }}
+      </h1>
+      <p class="ms-2 ml-2 mb-2" bp-section="page-subheading">
+        {{ trans('backpack::logmanager.log_manager_description') }}
+      </p>
     </section>
 @endsection
 
@@ -36,7 +39,7 @@
           <tr>
             <th scope="row">{{ $key + 1 }}</th>
             <td>{{ $file['file_name'] }}</td>
-            <td>{{ \Carbon\Carbon::createFromTimeStamp($file['last_modified'])->isoFormat(config('backpack.logmanager.date_format') ?: config('backpack.base.default_date_format')) }}</td>
+            <td>{{ \Carbon\Carbon::createFromTimeStamp($file['last_modified'])->isoFormat(config('backpack.logmanager.date_format') ?: config('backpack.base.default_date_format', 'D MMM YYYY')) }}</td>
             <td>{{ \Carbon\Carbon::createFromTimeStamp($file['last_modified'])->isoFormat('HH:mm') }}</td>
             <td class="text-right">{{ round((int)$file['file_size']/1048576, 2).' MB' }}</td>
             <td>

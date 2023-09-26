@@ -17,11 +17,14 @@ A simple interface to preview, download and delete Laravel log files.
 # install the package with composer
 composer require backpack/logmanager
 
-# [optional] Add a sidebar_content item for it
+# [optional] Add a menu item for it
+# For Backpack v6
+php artisan backpack:add-menu-content "<x-backpack::menu-item title='Logs' icon='la la-terminal' :link=\"backpack_url('log')\" />"
+# For Backpack v5 or v4
 php artisan backpack:add-sidebar-content "<li class='nav-item'><a class='nav-link' href='{{ backpack_url('log') }}'><i class='nav-icon la la-terminal'></i> Logs</a></li>"
 ```
 
-**For a better user experience, make sure Laravel is configured to create a new log file for each day.** That way, you can browse log entries by day too. You can do that in your ```config/logging.php``` file. 
+**For a better user experience, make sure Laravel is configured to create a new log file for each day.** That way, you can browse log entries by day too. You can do that in your ```config/logging.php``` file.
 
 From a default Laravel configuration, make sure the ```daily``` channel is inside the ```stack``` channel, which is used by default:
 
@@ -57,20 +60,14 @@ Add a menu element for it or just try at **your-project-domain/admin/log**
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Testing
-
-``` bash
-$ composer test
-```
-
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Overwriting Functionality
 
-If you need to modify how this works in a project: 
-- create a ```routes/backpack/logmanager.php``` file; the package will see that, and load _your_ routes file, instead of the one in the package; 
+If you need to modify how this works in a project:
+- create a ```routes/backpack/logmanager.php``` file; the package will see that, and load _your_ routes file, instead of the one in the package;
 - create controllers/models that extend the ones in the package, and use those in your new routes file;
 - modify anything you'd like in the new controllers/models;
 

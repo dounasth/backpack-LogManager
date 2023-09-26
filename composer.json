@@ -21,29 +21,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "backpack/crud": "^4.1|^5.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit" : "^9.0||^7.0",
-        "scrutinizer/ocular": "~1.1"
+        "backpack/crud": "^6.0"
     },
     "autoload": {
         "psr-4": {
             "Backpack\\LogManager\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Backpack\\LogManager\\Test\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit --testdox"
-    },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
         "laravel": {
             "providers": [
                 "Backpack\\LogManager\\LogManagerServiceProvider"
