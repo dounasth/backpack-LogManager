@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller;
 
 class LogController extends Controller
 {
+    private $data;
+
     /**
      * Lists all log files.
      *
